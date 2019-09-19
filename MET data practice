@@ -1,0 +1,29 @@
+SELECT *
+FROM met
+LIMIT 10;
+
+SELECT COUNT(*) //checking how many pieces are in the dataset
+FROM met;
+
+SELECT COUNT(*) //Counting the number of pieces where the category includes ‘celery’
+FROM met
+WHERE category LIKE '%celery%';
+
+SELECT MIN(date) // finding the oldest pieces
+FROM met;
+SELECT date, title, medium
+FROM met
+WHERE date LIKE '%1600%';
+
+SELECT country, COUNT(*) //Finding the top 10 countries with the most pieces in the collection
+FROM met
+GROUP BY country
+ORDER BY COUNT(*) DESC
+LIMIT 10;
+
+SELECT medium, COUNT(*) //Counting the number of pieces where the medium contains ‘gold’ or ‘silver’
+FROM met
+WHERE medium LIKE '%gold%' or 
+medium LIKE '%silveR%'
+GROUP BY 1
+ORDER BY 2 DESC;
